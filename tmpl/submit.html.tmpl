@@ -1,0 +1,51 @@
+{{ define "submit" }}
+
+{{ template "pageHeader_cc" . }}
+
+<div class="content">
+	<h1>Submit</h1>
+
+	
+	    <h2 class="content-subhead">Enter Your Results:</h2>
+	    <form class="pure-form pure-form-aligned" action="/submit/verify" method="post">
+	        <fieldset>
+	            <div class="pure-control-group">
+	                <label for="Paris">Paris:</label>
+	                <input name="Paris" type="number" value="" placeholder="Paris Totals" required />
+	            </div>
+	            <div class="pure-control-group">
+	                <label for="London">London:</label>
+	                <input name="London" type="number" value="" placeholder="London Totals" required />
+	            </div>
+	            <div class="pure-control-group">
+	                <label for="Berlin">Berlin:</label>
+	                <input name="Berlin" type="number" value="" placeholder="Berlin Totals" required />
+	            </div>
+	        </fieldset>
+	    <input type="submit" class="button-table pure-button" value="Submit" />
+	    <a href="/" class="button-normal pure-button">Cancel</a>
+	    </form>
+	
+</div>
+{{ template "pageFooterTop_cc" . }}
+{{ template "pageFooterBottom_cc" . }}
+{{ end }}
+
+
+{{ define "submitVerify" }}
+{{ $styler := (index .Sdata 0) }}
+
+{{ template "pageHeader_cc" . }}
+
+<div class="content">
+	<h1>Submission Results</h1>
+	{{ range $division, $status := .Data }}
+		<p>{{ $division }}: <span style="{{ $styler.Style $status }}">{{ $status }}</span></p>
+	{{ end }}
+	{{ if (index .Sdata 1) }}<iframe width="560" height="315" src="//www.youtube.com/embed/S9RVS8cjNN0?autoplay=1" frameborder="0" allowfullscreen></iframe>{{ end }}
+
+</div>
+{{ template "pageFooterTop_cc" . }}
+{{ template "pageFooterBottom_cc" . }}
+{{ end }}
+

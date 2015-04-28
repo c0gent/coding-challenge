@@ -42,7 +42,7 @@
 	{{ range $division, $status := .Data }}
 		<p>{{ $division }}: <span style="{{ $styler.Style $status }}">{{ $status }}</span></p>
 	{{ end }}
-	{{ if (index .Sdata 1) }}<iframe width="560" height="315" src="//www.youtube.com/embed/S9RVS8cjNN0?autoplay=1" frameborder="0" allowfullscreen></iframe>{{ end }}
+	{{ if (index .Sata 1) }}<iframe width="560" height="315" src="//www.youtube.com/embed/S9RVS8cjNN0?autoplay=1" frameborder="0" allowfullscreen></iframe>{{ end }}
 
 </div>
 {{ template "pageFooterTop_cc" . }}
